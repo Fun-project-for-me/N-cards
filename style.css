@@ -1,0 +1,295 @@
+body {
+  background: #fbdcdc;
+  height: 100%;
+  margin: 0;
+}
+.animate-bg {
+  animation: birthdayBg 8s linear infinite;
+}
+
+@keyframes birthdayBg {
+  0%   { background-color: #ffd1dc; }   /* Soft pink */
+  25%  { background-color: #ffe4b5; }   /* Moccasin */
+  50%  { background-color: #e0ffff; }   /* Light Cyan */
+  75%  { background-color: #d8bfd8; }   /* Thistle */
+  100% { background-color: #ffd1dc; }   /* Back to soft pink */
+}
+
+/* Music button style */
+#play-music {
+  display: none;
+  padding: 12px 25px;
+  background-color: #f06292;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  margin: 20px auto;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.birthday-card {
+  position: relative;
+  width: 300px;
+  height: 395px;
+  border: 10px solid #ef5050;
+  margin: 30px auto 0 auto;
+  -webkit-box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(255, 255, 255, 0.5))), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxBT3o0SFFDbVdEa3x8ZW58MHx8fHw%3D&w=1000&q=80");
+  background-image: linear-gradient(to bottom, white, rgba(255, 255, 255, 0.5)), url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXxBT3o0SFFDbVdEa3x8ZW58MHx8fHw%3D&w=1000&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: none;
+  animation: none;
+}
+
+
+@keyframes swing-in {
+  0% {
+    transform: translateX(-100%) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(10%) rotate(2deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.swing-animate {
+  animation: swing-in 1s ease forwards;
+}
+.birthday-card .text {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1rem;
+  color: #880e4f;
+  text-align: center;
+  padding: 20px;
+  overflow-y: auto;
+  line-height: 1.6;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.birthday-card .text::-webkit-scrollbar{
+  display: none;
+}
+.birthday-card .text > p {
+  margin-top: 20px;
+  font-style: normal;
+  color: #4a2e2e;
+  font-size: 1.4em;
+}
+
+.birthday-card .text .title {
+  font-size: 1.6em;
+  margin: 20px auto;
+  font-weight: bold;
+  color: #e60073;
+}
+.birthday-card .cover-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -10px 0 0 -10px;
+  border: 10px solid #ef5050;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+  -webkit-transform: perspective(800px) rotateY(0deg);
+          transform: perspective(800px) rotateY(0deg);
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.birthday-card .cover-outer img {
+  -webkit-box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+          box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+}
+
+.birthday-card .cover-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 10px solid #ef5050;
+  background-color: #ef5050;
+  margin: -10px 0px 0 -10px;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+  -webkit-filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+          filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform-origin: 0% 50%;
+          transform-origin: 0% 50%;
+  -webkit-transform: perspective(800px) rotateY(0deg);
+          transform: perspective(800px) rotateY(0deg);
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.birthday-card .cover-inner img {
+  -webkit-transform: rotateY(170deg);
+          transform: rotateY(170deg);
+}
+
+.birthday-card:hover .cover-outer {
+  -webkit-transform: perspective(800px) rotateY(-170deg);
+          transform: perspective(800px) rotateY(-170deg);
+}
+
+.birthday-card:hover .cover-inner {
+  -webkit-transform: perspective(800px) rotateY(-170deg);
+          transform: perspective(800px) rotateY(-170deg);
+  -webkit-box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+          box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+#black-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#turn-on-btn {
+  padding: 20px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #ef5050;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat';
+}
+
+#turn-on-btn:hover {
+  background-color: #ef5050;
+  color: white;
+  transform: scale(1.05);
+}
+
+
+#play-music {
+  display: none;
+  padding: 12px 25px;
+  background-color: #e63946;
+  color: #fff;
+  font-size: 18px;
+  font-family: 'Dancing Script', cursive;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+#play-music:hover {
+  background-color: #d62839;
+  transform: translateX(-50%) scale(1.05);
+}
+
+
+body.show-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Typing message */
+.typewriter-text {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem; /* made it bigger */
+  text-align: center;
+  color: #ff3366;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Button styles */
+#play-fav-btn {
+  display: block;
+  padding: 12px 28px;
+  font-size: 1.3em; /* slightly bigger */
+  background-color: #ff6699;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+#play-fav-btn:hover {
+  background-color: #e6005c;
+}
+
+
+#after-fav-message {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 60px;
+  color: #ff3366;
+  animation: blink-caret 0.75s step-end infinite;
+}
+
+/* Second message: "Let's check out your birthday card!" */
+#second-line {
+  font-family: 'Dancing Script',cursive,'Montserrat', sans-serif;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #ff6699;
+}
+
+/* Show card button */
+#show-card-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  background-color: #ff6699;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#show-card-btn:hover {
+  background-color: #e6005c;
+  transform: scale(1.05);
+}
